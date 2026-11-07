@@ -5,6 +5,7 @@ import {
 import { redisConnection } from "../config/redis.js";
 import { Worker } from "bullmq";
 import { sendWelcomeEmail } from "../scripts/welcomeNewsletter.js";
+import { sendFeedback } from "../services/feedback.service.js";
 
 const newsLetterWorker = new Worker(
   `newsletter-queue`, // name of the job this particular worker looks at
@@ -22,6 +23,9 @@ const newsLetterWorker = new Worker(
         if (!ok) throw new Error("Welcome email rejected");
         break;
       }
+      case "send-feedback":
+        await sendFeedback(job.data);
+        break;
       default:
         throw new Error(`Unknown job name: ${job.name}`);
     }

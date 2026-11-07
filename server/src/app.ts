@@ -13,6 +13,7 @@ import postAdminRouter from "./adminRoutes/postAdminRouter.js";
 import commentAdminRouter from "./adminRoutes/commentAdminRouter.js";
 import { searchRouter } from "./routes/searchRouter.js";
 import newsLetterRouter from "./adminRoutes/newsLetter.js";
+import feedbackRouter from "./routes/feedbackRouter.js";
 
 export const app = express();
 app.disable("x-powered-by");
@@ -53,6 +54,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/post", postRouter);
 app.use("/api/comment", commentRouter);
 app.use("/api/newsletter", newsLetterRouter);
+app.use("/api/feedback", feedbackRouter);
 app.use("/api/admin/posts", postAdminRouter);
 app.use("/api/admin/comment", commentAdminRouter);
 app.use("/api/search", searchRouter);

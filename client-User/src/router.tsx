@@ -6,6 +6,7 @@ import ErrorPage from "./Pages/Error";
 import { ViewPost } from "./Pages/ViewPost";
 import { About } from "./Pages/About";
 import { LoginPage } from "./Pages/Login";
+import { Feedback } from "./Pages/Feedback";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
       { path: "/errorpage", element: <ErrorPage /> },
       { path: "/viewpost/:postid", element: <ViewPost /> },
       { path: "/about", element: <About /> },
+      { path: "/feedback", element: <Feedback /> },
     ],
   },
 ]);
