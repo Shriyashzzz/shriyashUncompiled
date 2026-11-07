@@ -37,7 +37,7 @@ export async function sendLetter({
     headers: { "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" },
   });
 
-  if (info.rejected) {
+  if (info.rejected.length > 0) {
     throw new Error(
       `Error sending the newsletter to this reciptiant: ${subscriberInfo}`,
     );
