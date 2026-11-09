@@ -56,23 +56,23 @@ export const DropDown = () => {
         </button>
       </DropdownMenu.Trigger>
 
-        <DropdownMenu.Content
-          className="min-w-55 rounded-md bg-white p-1.25 text-gray-700 shadow-[0px_10px_38px_-10px_rgba(22,23,24,0.35),0px_10px_20px_-15px_rgba(22,23,24,0.2)] will-change-[opacity,transform] data-[state=closed]:scale-95 data-[state=closed]:opacity-0 data-[state=open]:scale-100 data-[state=open]:opacity-100 dark:bg-gray-800 dark:text-gray-100"
-          sideOffset={5}
+      <DropdownMenu.Content
+        className="z-50 min-w-55 rounded-md bg-white p-1.25 text-gray-700 shadow-[0px_10px_38px_-10px_rgba(22,23,24,0.35),0px_10px_20px_-15px_rgba(22,23,24,0.2)] will-change-[opacity,transform] data-[state=closed]:scale-95 data-[state=closed]:opacity-0 data-[state=open]:scale-100 data-[state=open]:opacity-100 dark:bg-gray-900 dark:text-gray-100"
+        sideOffset={5}
+      >
+        <DropdownMenu.Item
+          onClick={handleLogout}
+          className="group relative flex h-6.25 cursor-pointer items-center rounded-[3px] pr-1.25 pl-6.25 text-[13px] leading-none outline-none select-none data-disabled:pointer-events-none data-disabled:text-gray-400 data-highlighted:bg-green-600 data-highlighted:text-white"
         >
-          <DropdownMenu.Item
-            onClick={handleLogout}
-            className="group relative flex h-6.25 cursor-pointer items-center rounded-[3px] pr-1.25 pl-6.25 text-[13px] leading-none outline-none select-none data-disabled:pointer-events-none data-disabled:text-gray-400 data-highlighted:bg-green-600 data-highlighted:text-white"
-          >
-            Log Out
-          </DropdownMenu.Item>
-          <DropdownMenu.Item
-            onSelect={() => navigate("/feedback", { viewTransition: true })}
-            className="group relative flex h-6.25 cursor-pointer items-center rounded-[3px] pr-1.25 pl-6.25 text-[13px] leading-none outline-none select-none data-disabled:pointer-events-none data-disabled:text-gray-400 data-highlighted:bg-green-600 data-highlighted:text-white"
-          >
-            Feedback
-          </DropdownMenu.Item>
-        </DropdownMenu.Content>
+          Log Out
+        </DropdownMenu.Item>
+        <DropdownMenu.Item
+          onSelect={() => navigate("/feedback", { viewTransition: true })}
+          className="group relative flex h-6.25 cursor-pointer items-center rounded-[3px] pr-1.25 pl-6.25 text-[13px] leading-none outline-none select-none data-disabled:pointer-events-none data-disabled:text-gray-400 data-highlighted:bg-green-600 data-highlighted:text-white"
+        >
+          Feedback
+        </DropdownMenu.Item>
+      </DropdownMenu.Content>
     </DropdownMenu.Root>
   );
 };
