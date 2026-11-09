@@ -3,7 +3,7 @@ import { RootState } from "../store/store";
 import { TextArea } from "@radix-ui/themes";
 import { Button } from "@radix-ui/themes";
 import { PaperPlaneIcon } from "@radix-ui/react-icons";
-import { useState, SyntheticEvent } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import type { Dispatch, RefObject, SetStateAction } from "react";
 import { Comment } from "./ViewComment";
@@ -30,7 +30,7 @@ export function AddComment({
     if (!auth) navigate("/login", { viewTransition: true });
   };
 
-  const onCOmmentChnage = (e: React.SyntheticEvent<{ value: string }>) => {
+  const onCommentChnage = (e: React.SyntheticEvent<{ value: string }>) => {
     if (e.currentTarget.value.length > 300) return;
     setTextValue(e.currentTarget.value);
   };
@@ -66,19 +66,21 @@ export function AddComment({
 
   return (
     <>
-      <div className="mt-4 flex w-full flex-col gap-1">
+      <div className="mt-4 flex w-full cursor-pointer flex-col gap-2">
         <TextArea
           ref={commentBoxRef}
           onClick={handleCommentBoxClick}
           value={textValue}
-          onChange={(e) => onCOmmentChnage(e)}
+          onChange={(e) => onCommentChnage(e)}
           color={"grass"}
           placeholder={auth ? "Add Comment" : "Please sign in to comment "}
         />
-        <Button color="green" variant="solid" onClick={handleOnSubmit}>
-          {auth ? "Add Comment" : "Please sign in to comment "}
-          <PaperPlaneIcon />
-        </Button>
+        <span className={`text flex justify-start ${!textValue && "hidden"}`}>
+          <Button color="amber" variant="solid" onClick={handleOnSubmit}>
+            Comment
+            <PaperPlaneIcon />
+          </Button>
+        </span>
       </div>
     </>
   );

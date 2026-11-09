@@ -1,4 +1,4 @@
-import type { Author } from "../pages/ViewPost";
+import type { Author } from "../Pages/ViewPost";
 import { Avatar, Button, Container } from "@radix-ui/themes";
 import { initialExtract } from "../utils/initialExtractor";
 import { normalizeDate } from "../utils/normalizeDate";
@@ -42,13 +42,9 @@ export function ViewComments({
         height={"50px"}
         className="mt-2 rounded-md bg-amber-400"
       >
-        <div className="flex h-full items-center justify-center gap-4">
+        <div className="flex h-full items-center justify-center gap-2">
           <InfoCircledIcon color="black" className="h-5 w-5" />{" "}
-          <p className="font-medium text-black">
-            {" "}
-            No Comments. You can be the first{" "}
-            {!authState.isAuthenticated && "Sign in!"}
-          </p>
+          <p className="font-medium text-black"> No Comments</p>
         </div>
       </Container>
     );

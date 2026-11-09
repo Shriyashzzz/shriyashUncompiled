@@ -21,19 +21,12 @@ export function Header() {
         className="flex flex-row items-center gap-2"
       >
         <img src={terminal} alt="blog logo" className="size-10" />
-        <p className="m-0 p-0 font-[Nabla] text-sm text-green-600 sm:text-xl">
+        <p className="m-0 p-0 font-[Nabla] text-sm text-green-600 not-md:hidden sm:text-xl">
           &lt;Shriyash Uncompiled / &gt;
         </p>
       </NavLink>
 
       <div className="flex items-center justify-center gap-4">
-        <NavLink
-          to="/feedback"
-          viewTransition={true}
-          className="font-bold text-green-800 dark:text-green-600"
-        >
-          Feedback
-        </NavLink>
         <button
           onClick={() => dispatch(switchTheme())}
           className="flex cursor-pointer flex-row items-center gap-3 transition duration-300 ease-in-out hover:-translate-y-0.5"
@@ -44,6 +37,13 @@ export function Header() {
             <SunIcon className="size-6" />
           )}
         </button>
+        <NavLink
+          to="/feedback"
+          viewTransition={true}
+          className="font-bold text-green-800 dark:text-green-600"
+        >
+          Feedback
+        </NavLink>
         {!auth && (
           <ul>
             <NavLink className="cursor-pointer" to="/login">

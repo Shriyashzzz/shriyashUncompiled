@@ -98,7 +98,12 @@ export function ViewPost() {
       />
       <section className="w-full min-w-0">
         <div className="prose prose-headings:dark:text-white dark:prose-invert prose-p:text-base sm:prose-p:text-xl prose-pre:max-h-120 mx-auto flex w-full max-w-full flex-col bg-gray-200 p-4 leading-relaxed sm:p-6 dark:bg-gray-900 dark:text-white">
-          <h1 className="w-full">{post.title}</h1>
+          <div className="mb-2 h-fit">
+            <h1 className="mb-1 w-full p-0">{post.title}</h1>
+            <em className="mb-2 rotate-270 italic dark:text-gray-300">
+              by Shriyash Ghimrie
+            </em>
+          </div>
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
               <HeartFilledIcon color="green" /> {postLoveNum}
@@ -114,31 +119,30 @@ export function ViewPost() {
             >
               {post.content}
             </Markdown>
-            <div className="flex flex-col items-center justify-between">
-              <div className="flex w-full flex-row items-end justify-between pb-1.5">
-                <LovePost
-                  post={post}
-                  setPostLoveNum={setPostLoveNum}
-                  size="4"
-                  color="green"
-                />
-                <AuthorCard />{" "}
-              </div>
-              <SubNewsLetter className={"w-full justify-start"} />
+            <div className="flex w-full justify-between not-md:flex-row-reverse">
+              <LovePost
+                post={post}
+                setPostLoveNum={setPostLoveNum}
+                size="4"
+                color="green"
+              />
+              <SubNewsLetter className={"w-100 justify-start not-md:w-70"} />
             </div>
           </section>
         </div>
-        <AddComment
-          postId={post.id}
-          setComments={setComments}
-          commentBoxRef={commentBoxRef}
-          onCommentAdded={() => setCommentAddedTrigger((n) => n + 1)}
-        />
-        <ViewComments
-          viewCommentRef={viewCommentRef}
-          comments={comments}
-          setComments={setComments}
-        />
+        <div className="flex flex-col gap-4 pb-2">
+          <AddComment
+            postId={post.id}
+            setComments={setComments}
+            commentBoxRef={commentBoxRef}
+            onCommentAdded={() => setCommentAddedTrigger((n) => n + 1)}
+          />
+          <ViewComments
+            viewCommentRef={viewCommentRef}
+            comments={comments}
+            setComments={setComments}
+          />
+        </div>
       </section>
     </div>
   );
