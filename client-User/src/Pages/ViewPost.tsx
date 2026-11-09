@@ -19,6 +19,7 @@ import { LovePost } from "../components/LovePost";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import SubNewsLetter from "../components/NewsLetter";
+import { GoTop } from "../components/GoTop";
 
 export interface Author {
   id: number;
@@ -120,12 +121,15 @@ export function ViewPost() {
               {post.content}
             </Markdown>
             <div className="flex w-full justify-between not-md:flex-row-reverse">
-              <LovePost
-                post={post}
-                setPostLoveNum={setPostLoveNum}
-                size="4"
-                color="green"
-              />
+              <div className="flex flex-col justify-end gap-4">
+                <LovePost
+                  post={post}
+                  setPostLoveNum={setPostLoveNum}
+                  size="4"
+                  color="green"
+                />
+                <GoTop className="" size="4" />
+              </div>
               <SubNewsLetter className={"w-100 justify-start not-md:w-70"} />
             </div>
           </section>
