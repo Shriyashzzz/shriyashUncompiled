@@ -121,16 +121,16 @@ export function ViewPost() {
               {post.content}
             </Markdown>
             <div className="flex w-full justify-between not-md:flex-row-reverse">
-              <div className="flex flex-col justify-end gap-4">
+              <div className="flex flex-row-reverse justify-end gap-4 not-md:flex-col">
                 <LovePost
                   post={post}
                   setPostLoveNum={setPostLoveNum}
                   size="4"
                   color="green"
                 />
-                <GoTop className="" size="4" />
+                <GoTop className="" size="4" color="green" />
               </div>
-              <SubNewsLetter className={"w-100 justify-start not-md:w-70"} />
+              <SubNewsLetter className={"w-100 justify-start not-md:w-60"} />
             </div>
           </section>
         </div>

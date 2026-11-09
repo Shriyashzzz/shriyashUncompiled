@@ -26,7 +26,7 @@ export function GoTop({
 
   return (
     <div className={className}>
-      <Tooltip content="up">
+      <Tooltip content="scroll to the top">
         <IconButton
           onClick={scrollUp}
           radius="full"

@@ -1,10 +1,10 @@
 import { Header } from "./components/Header";
-import { MainContent } from "./Pages/MainContent.tsx";
-import { RootState } from "./store/store.ts";
+import { MainContent } from "./Pages/MainContent";
+import { RootState } from "./store/store";
 import { Theme } from "@radix-ui/themes";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { isAuth, isNotAuth } from "./store/authSlice.ts";
+import { isAuth, isNotAuth } from "./store/authSlice";
 import { useDispatch } from "react-redux";
 
 function App() {

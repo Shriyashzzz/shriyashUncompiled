@@ -37,13 +37,16 @@ export function Header() {
             <SunIcon className="size-6" />
           )}
         </button>
-        <NavLink
-          to="/feedback"
-          viewTransition={true}
-          className="font-bold text-green-800 dark:text-green-600"
-        >
-          Feedback
-        </NavLink>
+        {!auth && (
+          <NavLink
+            to="/feedback"
+            viewTransition={true}
+            className="font-bold text-green-800 dark:text-green-600"
+          >
+            Feedback
+          </NavLink>
+        )}
+
         {!auth && (
           <ul>
             <NavLink className="cursor-pointer" to="/login">
